@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# RDP-screenshotter.sh -version 0.1 BETA
+# RDP-screenshotter.sh - version 0.2 BETA(28-08-2016)
 # Copyright (c) 2016 Zer0-T
 # License: GPLv3
 #
@@ -39,7 +39,6 @@ function screenshot {
     import -window ${window} "${screenshot}"
 }
 
-
 function isAlive {
     pid=$1
     kill -0 $pid 2>/dev/null
@@ -59,6 +58,14 @@ function isTimedOut {
 }
 
 export DISPLAY=:0
+
+function ocr {
+	echo -e "${blue} Converting image to B/W and running OCR for ${host}"
+	convert "${temp}" -grayscale Rec709Luminance -resample 300x300 -unsharp 6.8x2.69 -quality 100 "${temp}" 
+	tesseract "${temp}" "${output}/${host}" 1>/dev/null 2>&1
+	echo -e "${green} OCR output saved in: ${output}/${host}.txt"
+}
+
 
 # Launch rdesktop in the background
 echo -e "${blue} Initiating rdesktop connection to ${host}"
@@ -105,16 +112,19 @@ while true; do
     fi
     timer=$((timer + timeoutStep))
 done
-rm ${temp}
 
 
 if [ ! -d "${output}" ]; then
     mkdir "${output}"
 fi
 
-        afterScreenshot="${output}/${host}.png"
-       screenshot "${afterScreenshot}" "${window}"
+afterScreenshot="${output}/${host}.png"
+screenshot "${afterScreenshot}" "${window}"
 
+# run ocr on saved image(s)
+ocr
+
+rm ${temp}
 
 # Close the rdesktop window
 kill $pid
