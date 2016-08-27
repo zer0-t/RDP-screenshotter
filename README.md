@@ -22,6 +22,7 @@ More info about NLA: https://technet.microsoft.com/en-us/magazine/hh750380.aspx
 
 ## Usage
 Scan a single host: `./RDP-screenshotter.sh 192.168.1.10`
+
 Scan Multiple hosts: `for i in $(cat list.txt); do ./RDP-screenshotter.sh "${i}"; done`
 
 ## Credits
