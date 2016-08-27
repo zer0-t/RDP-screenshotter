@@ -2,9 +2,7 @@
 
 This bash script takes a screenshot of the RDP desktop and converts the image to text.
 
-The script will connect to an RDP server, makes a screenshot and converts the image to text with OCR to obtain the username(s) of logged in users.
-
-The screenshot can be made because NLA(Network Level Authentication) is not configured properly on the host.
+The script will connect to an RDP server, makes a screenshot and converts the image to text with OCR to obtain the username(s) of logged in users. The screenshot can be made because NLA(Network Level Authentication) is not configured properly on the host.
 
 More info about NLA: https://technet.microsoft.com/en-us/magazine/hh750380.aspx
 
