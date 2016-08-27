@@ -18,7 +18,7 @@ More info about NLA: https://technet.microsoft.com/en-us/magazine/hh750380.aspx
 1. Linux host running an X server
 2. The following packages: xdotool imagemagick rdesktop bc
 3. Debian/Ubuntu/Kali install: `apt-get install xdotool imagemagick rdesktop bc`
-3. Screen cannot be locked during this process or all of the screenshots will turn out black
+
 
 ## Usage
 Scan a single host: `./RDP-screenshotter.sh 192.168.1.10`
