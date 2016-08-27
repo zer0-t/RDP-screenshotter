@@ -17,7 +17,7 @@ More info about NLA: https://technet.microsoft.com/en-us/magazine/hh750380.aspx
 
 1. Linux host running an X server
 2. The following packages: xdotool imagemagick rdesktop bc
-3. Debian/Ubuntu/Kali install: `apt-get install xdotool imagemagick rdesktop bc`
+3. Debian/Ubuntu/Kali install: `apt-get install xdotool imagemagick rdesktop bc tesseract-ocr`
 
 
 ## Usage
