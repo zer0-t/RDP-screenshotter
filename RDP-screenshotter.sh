@@ -69,7 +69,7 @@ function ocr {
 
 # Launch rdesktop in the background
 echo -e "${blue} Initiating rdesktop connection to ${host}"
-rdesktop -u "" -a 16 $host &
+xfreerdp -sec-nla /u:'' /p:'' /bpp:16 /cert:ignore /v:$host &
 pid=$!
 
 # Get window id
